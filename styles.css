@@ -35,6 +35,7 @@ body, a:link, a:visited, a:active{
 
 .duke{
   border: 10px solid blue;
+  background-image: url('assets/duke-sprite.gif');
 }
 .wisco{
   border: 10px solid red;
