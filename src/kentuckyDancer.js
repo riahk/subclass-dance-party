@@ -2,7 +2,8 @@ var makeKentuckyDancer = function(top, left, timeBetweenSteps){
   // debugger;
   makePlayerDancer.call(this, top, left, timeBetweenSteps);
   window.kentucky.push(this.$node);
-  this.$dancer.addClass("kentucky");
+  this.$sprite.attr('src', 'assets/kentucky-sprite.gif');
+  // this.$dancer.addClass("kentucky");
 };
 
   makeKentuckyDancer.prototype = Object.create(makePlayerDancer.prototype);

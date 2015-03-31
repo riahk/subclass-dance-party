@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Object Dance Party</title>
+    <title>Final Four MADNESS</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
+    <script src="src/makeBall.js"></script>
     <script src="src/blinkyDancer.js"></script>
     <script src="src/playerDancer.js"></script>
     <script src="src/dukeDancer.js"></script>
@@ -15,12 +16,15 @@
   </head>
   <body>
     <div class="topbar">
-      <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>
+      <span class="title">Final Four MADNESS</span>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeDukeDancer">add a Duke dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeWiscoDancer">add a Wisconsin dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeKentuckyDancer">add a Kentucky dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeMichiganDancer">add a Michigan dancer</a>
+      <a href="#" class="lineupButton">lineup</a>
+      <audio controls>
+        <source src='assets/Jock-Jams.mp3' type='audio/mp3'>
+      </audio>
     </div>
     <script src="src/init.js"></script>
   </body>
