@@ -3,7 +3,9 @@ var makeDancer = function(top, left, timeBetweenSteps){
   // debugger;
   // use jQuery to create an HTML <span> tag
   this.interval = timeBetweenSteps;
-  this.$node = $('<span class="dancer"></span>');
+  this.$node = $('<div class="container"></div>');
+  this.$dancer = $('<span class="dancer"></span>');
+  this.$node.append(this.$dancer);
   // debugger;
   this.step();
 

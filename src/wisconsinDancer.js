@@ -1,14 +1,14 @@
-var makeDukeDancer = function(top, left, timeBetweenSteps){
+var makeWiscoDancer = function(top, left, timeBetweenSteps){
   // debugger;
   makePlayerDancer.call(this, top, left, timeBetweenSteps);
-  window.duke.push(this.$node);
-  this.$dancer.addClass("duke");
+  window.wisco.push(this.$node);
+  this.$dancer.addClass("wisco");
 };
 
-  makeDukeDancer.prototype = Object.create(makePlayerDancer.prototype);
-  makeDukeDancer.prototype.constructor = makeDukeDancer;
+  makeWiscoDancer.prototype = Object.create(makePlayerDancer.prototype);
+  makeWiscoDancer.prototype.constructor = makeWiscoDancer;
 
-  makeDukeDancer.prototype.step = function(){
+  makeWiscoDancer.prototype.step = function(){
     // call the old version of step at the beginning of any call to this new version of step
     makeDancer.prototype.step.call(this);
     // toggle() is a jQuery method to show/hide the <span> tag.

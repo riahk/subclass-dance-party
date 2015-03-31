@@ -1,6 +1,9 @@
 $(document).ready(function(){
   window.dancers = [];
   window.duke = [];
+  window.wisco = [];
+  window.michigan = [];
+  window.kentucky = [];
 
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
