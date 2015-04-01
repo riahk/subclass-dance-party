@@ -50,7 +50,6 @@ $(document).ready(function(){
   }
 
   $body.on('mouseover', '.dancer', function(event){
-    console.log('hover');
       $(this).toggleClass('spin');
   });
 
@@ -77,10 +76,38 @@ $(document).ready(function(){
     clear();
   })
 
+  var startingLineup = function(){
+    var hSpace = width/6;
+    var vSpace = height/8;
 
+    for (var i = 2; i < 8; i += 2){
+        var yPos = vSpace * i;
+        var player = new makeDukeDancer(yPos, hSpace, Math.random()*1000);
+        $body.append(player.$node);
+        var opponent = new makeMichiganDancer(yPos, hSpace*5, Math.random()*1000);
+        $body.append(opponent.$node);
 
+    };
+    for (var i = 3; i < 7; i += 2){
+      var yPos = vSpace * i;
+      var player = new makeDukeDancer(yPos, hSpace*2, Math.random()*1000);
+      $body.append(player.$node);
+      var opponent = new makeMichiganDancer(yPos, hSpace*4, Math.random()*1000);
+      $body.append(opponent.$node);
+    }
 
+    var startPlayer = window.dancers[Math.floor(Math.random()*window.dancers.length)];
+    var ball = new makeBall(startPlayer.topPos, startPlayer.leftPos, Math.random()*1000);
+    $body.append(ball.$node);
+    startPlayer.catchBall();
+  }
 
+  $('.teamButton').on('click', function(event){
+    if (window.dancers.length !== 0){
+      clear();
+    }
+    startingLineup();
+  })
 
 });
 
