@@ -10,8 +10,8 @@ var makePlayerDancer = function(top, left, timeBetweenSteps){
   makePlayerDancer.prototype = Object.create(makeDancer.prototype);
   makePlayerDancer.prototype.constructor = makePlayerDancer;
   makePlayerDancer.prototype.move = function(){
-    this.$dancer.animate({"left": "+=50px"}, "slow");
-    this.$dancer.animate({"left": "-=50px"}, "slow");
+    this.$dancer.animate({"left": "+=50px"});
+    this.$dancer.animate({"left": "-=50px"});
 
   }
 
@@ -45,6 +45,5 @@ var makePlayerDancer = function(top, left, timeBetweenSteps){
   makePlayerDancer.prototype.catchBall = function(){
     window.ball.$node.animate({top: this.topPos,
                               left: this.leftPos}, "slow");
-    console.log('caughtBall');
     this.hasBall = true;
   }
