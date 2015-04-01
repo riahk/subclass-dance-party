@@ -1,7 +1,10 @@
 var makeBall = function(top, left, timeBetweenSteps){
   makeDancer.call(this, top, left, timeBetweenSteps);
   // this.$sprite = $('<img></img>');
-  this.$dancer.addClass('ball');
+  window.ball = this;
+  this.$sprite = $('<img src="assets/basketball.png"></img>');
+  this.$dancer.append(this.$sprite);
+  this.$sprite.addClass('ball');
 };
 
   makeBall.prototype = Object.create(makeDancer.prototype);

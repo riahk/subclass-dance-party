@@ -4,32 +4,19 @@ $(document).ready(function(){
   window.wisco = [];
   window.michigan = [];
   window.kentucky = [];
+  window.teams = [window.duke, window.wisco, window.michigan, window.kentucky];
+  window.ball = null;
 
   var $body = $('body');
   var height = $body.height();
   var width = $body.width();
 
+  var backgrounds = ['url(\'assets/Cameron_Indoor_Stadium.jpg\')', 'url(\'assets/rupp-uk.jpg\')',
+                    'url(\'assets/michigan-court.jpg\')', 'url(\'assets/wisconsin-court.jpg\')' ];
+
   $(".addDancerButton").on("click", function(event){
-    /* This function sets up the click handlers for the create-dancer
-     * buttons on index.html. You should only need to make one small change to it.
-     * As long as the "data-dancer-maker-function-name" attribute of a
-     * class="addDancerButton" DOM node matches one of the names of the
-     * maker functions available in the global scope, clicking that node
-     * will call the function to make the dancer.
-     */
-
-    /* dancerMakerFunctionName is a string which must match
-     * one of the dancer maker functions available in global scope.
-     * A new object of the given type will be created and added
-     * to the stage.
-     */
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
-
-    // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
-
-    // make a dancer with a random position
-
     var dancer = new dancerMakerFunction(
       height * Math.random(),
       width * Math.random(),
@@ -41,17 +28,12 @@ $(document).ready(function(){
       var position = window.dancers[0].$node.position();
       var ball = new makeBall(position.top, position.left, Math.random() * 1000);
       $body.append(ball.$node);
-      console.log('ball made');
+      window.dancers[0].catchBall();
     }
-
-
-
-
   });
 
   $(".lineupButton").on("click", function(event){
     lineup();
-
   });
 
   var lineup = function(){
@@ -69,18 +51,31 @@ $(document).ready(function(){
 
   $body.on('mouseover', '.dancer', function(event){
     console.log('hover');
-    // if (this instanceof makePlayerDancer){
-      // console.log('playerdancer!');
       $(this).toggleClass('spin');
-    // }
   });
 
+  var currentBackground = 0;
+  $('.backgroundButton').on('click', function(event){
+    $body.css({'background-image': backgrounds[currentBackground]});
+    if(currentBackground === backgrounds.length-1) {
+      currentBackground = 0;
+    } else { currentBackground++; }
+  })
 
+  var clear = function(){
+    $('.container').remove();
+    window.dancers = [];
+    window.duke = [];
+    window.wisco = [];
+    window.michigan = [];
+    window.kentucky = [];
+    window.teams = [window.duke, window.wisco, window.michigan, window.kentucky];
+    window.ball = null;
+  }
 
-
-
-
-
+  $('.clearButton').on('click', function(event){
+    clear();
+  })
 
 
 

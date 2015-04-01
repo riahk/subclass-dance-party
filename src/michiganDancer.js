@@ -1,7 +1,9 @@
 var makeMichiganDancer = function(top, left, timeBetweenSteps){
   // debugger;
   makePlayerDancer.call(this, top, left, timeBetweenSteps);
-  window.michigan.push(this.$node);
+  window.michigan.push(this);
+  this.team = window.michigan;
+  this.turnover = 0.4;
   this.$sprite.attr('src', 'assets/michigan-sprite.gif');
   // this.$dancer.addClass("michigan");
 };

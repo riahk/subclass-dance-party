@@ -1,7 +1,9 @@
 var makeWiscoDancer = function(top, left, timeBetweenSteps){
   // debugger;
   makePlayerDancer.call(this, top, left, timeBetweenSteps);
-  window.wisco.push(this.$node);
+  window.wisco.push(this);
+  this.team = window.wisco;
+  this.turnover = 0.3;
   this.$sprite.attr('src', 'assets/wisconsin-sprite.gif');
   //this.$dancer.addClass("wisco");
 };

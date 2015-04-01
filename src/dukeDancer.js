@@ -1,8 +1,11 @@
 var makeDukeDancer = function(top, left, timeBetweenSteps){
   // debugger;
   makePlayerDancer.call(this, top, left, timeBetweenSteps);
-  window.duke.push(this.$node);
+  window.duke.push(this);
   this.$sprite.attr('src', 'assets/duke-sprite.gif');
+  this.team = window.duke;
+  this.turnover = 0.2;
+
   // this.$dancer.addClass("duke");
   //this.$dancer.append(this.$sprite);
 };
